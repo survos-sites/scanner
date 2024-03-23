@@ -1,18 +1,22 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-imagick": "*",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.1",
+        "liip/monitor-bundle": "^3.0",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.27",
+        "survos/maker-bundle": "^1.5",
+        "survos/pwa-extra-bundle": "^1.5",
         "symfony/asset": "7.0.*",
         "symfony/asset-mapper": "7.0.*",
         "symfony/console": "7.0.*",
@@ -104,5 +108,7 @@
         "symfony/phpunit-bridge": "^7.0",
         "symfony/stopwatch": "7.0.*",
         "symfony/web-profiler-bundle": "7.0.*"
-    }
+    },
+    "name": "survos-sites/hello",
+    "description": "Say hello in different languages, a Symfony PWA app"
 }
