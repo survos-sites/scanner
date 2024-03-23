@@ -1,0 +1,33 @@
+# Default configuration for extension with alias: "liip_monitor"
+liip_monitor:
+
+    checks:
+
+        # fails/warns if system memory usage % is above thresholds
+        system_memory_usage:
+            enabled:              true
+            warning:              70%
+            critical:             90%
+            suite:                []
+            ttl:                  3600
+            label:                system_memory_usage
+            id:                   system_memory_usage
+
+
+        ping_url:
+
+            # Prototype
+            -
+                url:                  / # Required
+                method:               GET
+
+                # See HttpClientInterface::DEFAULT_OPTIONS
+                options:              []
+
+                # Leave null to ensure "successful" (2xx) status code
+                expected_status_code: 200
+#                expected_content:     null
+
+                # Milliseconds
+
+
