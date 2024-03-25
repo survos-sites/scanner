@@ -1,6 +1,6 @@
 {% for book in books %}
     <li>{{ book.title }}
-        {{ book.info ? book.info.number_of_pages }} <pages></pages>
+        {{ book.info ? book.info.number_of_pages|default('?') }} <pages></pages>
 {#        {{ book.createdAt|date('c') }}#}
     </li>
 {% endfor %}
