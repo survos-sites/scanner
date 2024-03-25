@@ -21,10 +21,24 @@ class Book
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $status = null;
 
-    public function getId(): ?int
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    /**
+     * @param string|null $isbn
+     * @param User|null $user
+     */
+    public function __construct(?string $isbn, ?User $user)
     {
-        return $this->id;
+        $this->isbn = $isbn;
+        $this->user = $user;
+        $this->createdAt=new \DateTimeImmutable();
     }
+
 
     public function getIsbn(): ?string
     {
@@ -70,6 +84,30 @@ class Book
     public function setStatus(?string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

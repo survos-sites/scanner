@@ -35,4 +35,7 @@ return [
     'html5-qrcode' => [
         'version' => '2.3.8',
     ],
+    '@ericblade/quagga2' => [
+        'version' => '1.8.4',
+    ],
 ];

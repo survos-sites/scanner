@@ -23,12 +23,41 @@
            </li>
         </ul>
         <ul>
-            {% for route in ['scan','qr','isbn'] %}
+            <li>
+                <twig:PwaInstall>
+                    <twig:block name="launch">
+                        <button class="btn btn-outline-success">
+                            Lauch button here...
+                        </button>
+                    </twig:block>
+                    <twig:block name="install">
+                        <button class="btn btn-success">
+                            Install as PWA
+                        </button>
+                    </twig:block>
+                </twig:PwaInstall>
+
+                online/install button
+
+            </li>
+        </ul>
+        <ul>
+            {% set routes = ['scan','qr','isbn'] %}
+            {% if app.user %}
+            {% set routes = routes|merge(['logout']) %}
+            {% else %}
+            {% set routes = routes|merge(['login','register']) %}
+            {% endif %}
+            {% for route in routes %}
                 <li><a href="{{ path('app_' ~ route) }}">{{ route|title }}</a></li>
             {% endfor %}
         </ul>
+
     </nav>
 
-        {% block body %}{% endblock %}
+    <main class="container">
+        {% block body %}
+        {% endblock %}
+    </main>
     </body>
 </html>

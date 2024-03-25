@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Genkgo\Favicon;
 use Genkgo\Favicon\InputImageType;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 class AppController extends AbstractController
 {
     public function __construct(
@@ -33,6 +35,7 @@ class AppController extends AbstractController
     }
 
     #[Route('/scan', name: 'app_scan')]
+    #[IsGranted('IS_AUTHENTICATED')]
     public function scan(): Response
     {
         return $this->render('app/scan.html.twig', [
@@ -40,10 +43,12 @@ class AppController extends AbstractController
     }
 
     #[Route('/isbn/{id}', name: 'app_isbn')]
+    #[IsGranted('IS_AUTHENTICATED')]
     public function searchISBN(ScraperService $scraperService, string $id='9780140328721')
     {
-        if (!$book = $this->bookRepository->find($id)) {
-            $book = (new Book())->setIsbn($id);
+        $user = $this->getUser();
+        if (!$book = $this->bookRepository->findOneBy(['user' => $user, 'isbn' => $id])) {
+            $book = (new Book($id, $user));
             $this->entityManager->persist($book);
         }
 
