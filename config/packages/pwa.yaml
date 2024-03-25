@@ -1,0 +1,41 @@
+pwa:
+    image_processor: 'pwa.image_processor.imagick'
+    manifest:
+        enabled: true
+        background_color: "#c026d3"
+        theme_color: "#c026d3"
+        name: 'Book Scanner'
+        short_name: 'book-scanner'
+        description: 'Book inventory via isbn barcodes'
+        orientation: "any"
+        display: "standalone"
+        scope: "/"
+        display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
+        id: "/"
+        start_url: "./"
+        icons:
+            # https://www.veryicon.com/icons/miscellaneous/smart-site/noise-3.html
+            - src: "images/books.svg"
+              sizes: "any"
+        screenshots:
+#            - "images/screenshot1.png"
+#            - "images/screenshot2.png"
+        categories: []
+        shortcuts: []
+        edge_side_panel:
+            preferred_width: 280
+        widgets: []
+    serviceworker:
+        enabled: true
+        src: "sw.js"
+        skip_waiting: true
+        workbox:
+            resource_caches:
+              -   match_callback: 'regex: {(login|register)$}}'
+                  cache_name: 'static-pages'
+                  strategy: CacheFirst
+          #                  network_timeout: 2 # Wait only 2 seconds (only when strategy = networkFirst
+                  preload_urls: # List of URLs to precache. The URL shall be comprised within the regex
+#                      - 'app_homepage'
+            offline_fallback:
+                page: 'app_homepage'

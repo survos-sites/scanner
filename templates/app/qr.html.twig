@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello World!{% endblock %}
+
+{% block body %}
+    {% set _sc = 'scanner' %}
+    <div {{ stimulus_controller(_sc, {
+    testIsbn: '9780140328721'
+}) }}>
+        <div {{ stimulus_target(_sc, 'results') }}>
+            results here.
+        </div>
+        <div id="qr-reader" {{ stimulus_target(_sc, 'camera') }} style="width: 600px">
+            reader here.
+        </div>
+    </div>
+    <main class="container">
+        <h1>Hello world!</h1>
+    </main>
+{% endblock %}
