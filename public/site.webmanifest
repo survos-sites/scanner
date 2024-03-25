@@ -1,0 +1,47 @@
+{
+    "categories": [],
+    "description": "Book inventory via isbn barcodes",
+    "name": "Book Scanner",
+    "short_name": "book-scanner",
+    "start_url": "./",
+    "background_color": "#c026d3",
+    "display": "standalone",
+    "display_override": [
+        "fullscreen",
+        "minimal-ui",
+        "window-controls-overlay"
+    ],
+    "id": "/",
+    "orientation": "any",
+    "scope": "/",
+    "theme_color": "#c026d3",
+    "edge_side_panel": {
+        "preferred_width": 280
+    },
+    "scope_extensions": [],
+    "icons": [
+        {
+            "src": "/assets/images/books-e903faf1d837d63b6535358ead0e3796.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshot1.png"
+        },
+        {
+            "src": "images/screenshot2.png"
+        }
+    ],
+    "file_handlers": [],
+    "protocol_handlers": [],
+    "related_applications": [],
+    "shortcuts": [],
+    "widgets": [],
+    "serviceworker": {
+        "src": "/sw.js",
+        "scope": "/",
+        "use_cache": true
+    }
+}

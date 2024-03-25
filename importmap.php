@@ -32,4 +32,7 @@ return [
         'version' => '2.0.6',
         'type' => 'css',
     ],
+    'html5-qrcode' => [
+        'version' => '2.3.8',
+    ],
 ];

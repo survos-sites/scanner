@@ -12,16 +12,20 @@
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
+        {{ pwa() }}
     </head>
     <body>
     <nav>
         <ul>
-            <li><strong>Hello</strong></li>
+            <li><a href="{{ path('app_homepage') }}">
+                    <strong>Scanner</strong>
+                </a>
+           </li>
         </ul>
         <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Products</a></li>
+            {% for route in ['scan','qr','isbn'] %}
+                <li><a href="{{ path('app_' ~ route) }}">{{ route|title }}</a></li>
+            {% endfor %}
         </ul>
     </nav>
 

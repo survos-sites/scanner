@@ -1,4 +1,18 @@
 {
+    "api-platform/core": {
+        "version": "3.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.2",
+            "ref": "696d44adc3c0d4f5d25a2f1c4f3700dd8a5c6db9"
+        },
+        "files": [
+            "config/packages/api_platform.yaml",
+            "config/routes/api_platform.yaml",
+            "src/ApiResource/.gitignore"
+        ]
+    },
     "doctrine/doctrine-bundle": {
         "version": "2.12",
         "recipe": {
@@ -26,6 +40,9 @@
             "migrations/.gitignore"
         ]
     },
+    "endroid/qr-code-bundle": {
+        "version": "5.0.1"
+    },
     "liip/monitor-bundle": {
         "version": "3.9999999",
         "recipe": {
@@ -36,6 +53,18 @@
         },
         "files": [
             "config/packages/monitor.yaml"
+        ]
+    },
+    "nelmio/cors-bundle": {
+        "version": "2.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
         ]
     },
     "phpunit/phpunit": {
@@ -55,6 +84,19 @@
     "spomky-labs/pwa-bundle": {
         "version": "1.1.x-dev"
     },
+    "survos/command-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "31483097a99800fa6b049af3c61ad0ebf5727751"
+        },
+        "files": [
+            "config/packages/survos_command.yaml",
+            "config/routes/survos_command.php"
+        ]
+    },
     "survos/core-bundle": {
         "version": "1.5.190"
     },
@@ -62,6 +104,9 @@
         "version": "1.5.190"
     },
     "survos/pwa-extra-bundle": {
+        "version": "1.5.190"
+    },
+    "survos/scraper-bundle": {
         "version": "1.5.190"
     },
     "symfony/asset-mapper": {
