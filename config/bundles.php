@@ -16,7 +16,7 @@ return [
     Survos\CoreBundle\SurvosCoreBundle::class => ['all' => true],
     SpomkyLabs\PwaBundle\SpomkyLabsPwaBundle::class => ['all' => true],
     Survos\PwaExtraBundle\SurvosPwaExtraBundle::class => ['all' => true],
-    Survos\Bundle\MakerBundle\SurvosMakerBundle::class => ['all' => true],
+    Survos\Bundle\MakerBundle\SurvosMakerBundle::class => ['dev' => true],
     Liip\Monitor\LiipMonitorBundle::class => ['all' => true],
     Survos\CommandBundle\SurvosCommandBundle::class => ['all' => true],
     Survos\Scraper\SurvosScraperBundle::class => ['all' => true],
