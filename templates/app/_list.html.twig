@@ -1,0 +1,5 @@
+{% for book in books %}
+    <li>{{ book.title }}
+        {{ book.createAd|date('c') }}
+    </li>
+{% endfor %}

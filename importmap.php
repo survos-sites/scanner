@@ -38,4 +38,7 @@ return [
     '@ericblade/quagga2' => [
         'version' => '1.8.4',
     ],
+    'htmx.org' => [
+        'version' => '1.9.11',
+    ],
 ];

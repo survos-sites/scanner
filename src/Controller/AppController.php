@@ -30,7 +30,14 @@ class AppController extends AbstractController
     public function index(): Response
     {
         return $this->render('app/index.html.twig', [
-            'books' => $this->bookRepository->findBy([])
+        ]);
+    }
+
+    #[Route('/_list', name: 'app_list')]
+    public function _list(): Response
+    {
+        return $this->render('app/_list.html.twig',
+            ['books' => $this->bookRepository->findBy([], ['createdAt' => 'DESC'], 20)
         ]);
     }
 

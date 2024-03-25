@@ -42,7 +42,7 @@
             </li>
         </ul>
         <ul>
-            {% set routes = ['scan','qr','isbn'] %}
+            {% set routes = ['scan','qr','isbn','list'] %}
             {% if app.user %}
             {% set routes = routes|merge(['logout']) %}
             {% else %}
