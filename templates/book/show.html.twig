@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ book.title }}</h1>
+
+    <p>
+        {{ book.get('description') }}
+    </p>
+
+    <h3>{{ 'authors'|trans }}</h3>
+
+    {% for author in book.authors %}
+        <li>{{ author.name }}</li>
+    {% endfor %}
+
+    {{ dump(book.info) }}
+{% endblock %}

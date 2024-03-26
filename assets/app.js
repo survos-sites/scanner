@@ -10,3 +10,5 @@ import '@picocss/pico';
 import '@picocss/pico/css/pico.min.css';
 import 'htmx.org';
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+import '@khmyznikov/pwa-install';

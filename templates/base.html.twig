@@ -24,10 +24,12 @@
         </ul>
         <ul>
             <li>
+{#                <pwa-install></pwa-install>#}
+
                 <twig:PwaInstall>
                     <twig:block name="launch">
                         <button class="btn btn-outline-success">
-                            Lauch button here...
+                            Launch button here...
                         </button>
                     </twig:block>
                     <twig:block name="install">
@@ -42,7 +44,10 @@
             </li>
         </ul>
         <ul>
-            {% set routes = ['scan','qr','isbn','list'] %}
+            {% set routes = ['scan','qr','isbn'] %}
+            {% if app.environment == 'dev' %}
+            {% set routes = routes|merge(['list']) %}
+            {% endif %}
             {% if app.user %}
             {% set routes = routes|merge(['logout']) %}
             {% else %}

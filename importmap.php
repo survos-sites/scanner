@@ -71,4 +71,58 @@ return [
     '@babel/runtime/helpers/esm/defineProperty' => [
         'version' => '7.23.8',
     ],
+    '@khmyznikov/pwa-install' => [
+        'version' => '0.3.5',
+    ],
+    'lit' => [
+        'version' => '3.1.2',
+    ],
+    'lit/decorators.js' => [
+        'version' => '3.1.2',
+    ],
+    'lit/directives/class-map.js' => [
+        'version' => '3.1.2',
+    ],
+    '@lit/reactive-element' => [
+        'version' => '2.0.4',
+    ],
+    'lit-html' => [
+        'version' => '3.1.2',
+    ],
+    'lit-element/lit-element.js' => [
+        'version' => '4.0.4',
+    ],
+    'lit-html/is-server.js' => [
+        'version' => '3.1.2',
+    ],
+    '@lit/reactive-element/decorators/custom-element.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/property.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/state.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/event-options.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/query.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/query-all.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/query-async.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/query-assigned-elements.js' => [
+        'version' => '2.0.4',
+    ],
+    '@lit/reactive-element/decorators/query-assigned-nodes.js' => [
+        'version' => '2.0.4',
+    ],
+    'lit-html/directives/class-map.js' => [
+        'version' => '3.1.2',
+    ],
 ];
