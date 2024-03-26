@@ -58,7 +58,7 @@ class Author
 
     public function getName(): ?string
     {
-        return $this->getInfo()['personal_name']??null;
+        return $this->getInfo()['name']??$this->getInfo()['personal_name']??null;
 
     }
 

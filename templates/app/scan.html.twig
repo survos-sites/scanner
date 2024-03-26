@@ -6,7 +6,6 @@
     <main class="container">
 
         <ul id="list">
-            <li>Item 1</li>
         </ul>
 
     {% set _sc = 'scanner' %}
@@ -20,9 +19,9 @@
     <div {{ stimulus_controller(_sc, {
     testIsbn: '9780140328721'
 }) }}>
-        <div {{ stimulus_target(_sc, 'results') }}>
+        <h1 {{ stimulus_target(_sc, 'results') }}>
             results here.
-        </div>
+        </h1>
         <div id="qr-reader" {{ stimulus_target(_sc, 'camera') }} style="width: 80%">
             reader here.
         </div>
