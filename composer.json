@@ -17,7 +17,7 @@
         "doctrine/orm": "^3.1",
         "endroid/qr-code-bundle": "^5.0",
         "genkgo/favicon": "^0.3.4",
-        "knpuniversity/oauth2-client-bundle": "^2.18",
+        "tacman/oauth2-client-bundle": "*",
         "league/oauth2-github": "^3.1",
         "liip/monitor-bundle": "^3.0",
         "nelmio/cors-bundle": "^2.4",
