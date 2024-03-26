@@ -64,9 +64,9 @@
             </li>
         </ul>
         <ul>
-            {% set routes = ['scan','qr','isbn'] %}
+            {% set routes = ['scan','qr'] %}
             {% if app.environment == 'dev' %}
-            {% set routes = routes|merge(['list']) %}
+            {% set routes = routes|merge(['list','isbn']) %}
             {% endif %}
             {% if app.user %}
             {% set routes = routes|merge(['logout']) %}

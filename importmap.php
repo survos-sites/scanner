@@ -129,4 +129,10 @@ return [
         'version' => '1.11.3',
         'type' => 'css',
     ],
+    '@stimulus-components/content-loader' => [
+        'version' => '5.0.0',
+    ],
+    'isbn3' => [
+        'version' => '1.1.46',
+    ],
 ];
