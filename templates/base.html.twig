@@ -66,7 +66,7 @@
         <ul>
             {% set routes = ['scan','qr'] %}
             {% if app.environment == 'dev' %}
-            {% set routes = routes|merge(['list','isbn']) %}
+            {% set routes = routes|merge(['list','isbn','qr_books']) %}
             {% endif %}
             {% if app.user %}
             {% set routes = routes|merge(['logout']) %}
