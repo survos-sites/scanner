@@ -125,4 +125,8 @@ return [
     'lit-html/directives/class-map.js' => [
         'version' => '3.1.2',
     ],
+    'bootstrap-icons/font/bootstrap-icons.min.css' => [
+        'version' => '1.11.3',
+        'type' => 'css',
+    ],
 ];

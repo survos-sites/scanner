@@ -2,6 +2,10 @@ import { Controller } from '@hotwired/stimulus';
 import {Html5QrcodeScanner} from 'html5-qrcode';
 import Quagga from '@ericblade/quagga2'; // barcode only https://serratus.github.io/quaggaJS/
 
+// for photos, demo not working well though
+// https://daviddalbusco.medium.com/take-photo-and-access-the-picture-library-in-your-pwa-without-plugins-876dc92989b
+// https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos#demo]
+// https://web.dev/articles/media-capturing-images#grab_a_snapshot
 /*
 * The following line makes this controller "lazy": it won't be downloaded until needed
 * See https://github.com/symfony/stimulus-bridge#lazy-controllers
