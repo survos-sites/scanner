@@ -9,6 +9,7 @@
         "ext-gd": "*",
         "ext-iconv": "*",
         "ext-imagick": "*",
+        "ext-redis": "*",
         "api-platform/core": "^3.2",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.12",
