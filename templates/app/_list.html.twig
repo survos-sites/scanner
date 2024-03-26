@@ -1,17 +1,44 @@
-{% for book in books %}
-    <li>
-        <a href="{{ path('book_show', book.rp) }}">
-            {{ book.title }}
-        </a>
-        {{ book.info ? book.info.number_of_pages|default('?') }} <pages></pages>
-        <br />
-        <ol>
-            {% for userBook in book.userBooks %}
-                <li>{{ userBook.user.email }}</li>
-            {% endfor %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Titulo</th>
+        <th>Paginas</th>
+        <th>Autor(es)</th>
+    </tr>
+    </thead>
+    <tbody>
 
-        </ol>
+{% for book in books %}
+    <tr>
+        <td>
+            <a href="{{ path('book_show', book.rp) }}">
+                {{ book.title }}
+            </a>
+            <br />
+            <p>{{ book.description }}</p>
+
+        </td>
+        <td>
+            {{ book.info ? book.info.number_of_pages|default('?') }} <pages></pages>
+        </td>
+        <td>
+            <ul>
+                {% for author in book.authors %}
+                    <li>{{ author.name }}</li>
+                {% endfor %}
+            </ul>
+
+        </td>
+{#        <ol>#}
+{#            {% for userBook in book.userBooks %}#}
+{#                <li>{{ userBook.user.email }}</li>#}
+{#            {% endfor %}#}
+
+{#        </ol>#}
 {#        {{ barcode(book.isbn, 2, 80, 'black') }}#}
 {#        {{ book.createdAt|date('c') }}#}
-    </li>
+    </tr>
 {% endfor %}
+    </tbody>
+
+</table>

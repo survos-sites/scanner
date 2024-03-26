@@ -53,7 +53,11 @@ class Book implements RouteParametersInterface
     public function get(string $key): mixed
     {
         return $this->getInfo()[$key]??null;
+    }
 
+    public function getDescription(): ?string
+    {
+        return $this->getInfo()['description']['value']??null;
     }
 
 
