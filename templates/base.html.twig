@@ -68,15 +68,26 @@
             {% if app.environment == 'dev' %}
             {% set routes = routes|merge(['list','isbn','qr_books']) %}
             {% endif %}
-            {% if app.user %}
-            {% set routes = routes|merge(['logout']) %}
-            {% else %}
-            {% set routes = routes|merge(['login','register']) %}
-            {% endif %}
             {% for route in routes %}
                 <li><a href="{{ path('app_' ~ route) }}">{{ route|title }}</a></li>
             {% endfor %}
+
         </ul>
+
+        <ul>
+
+            {% set routes = [] %}
+            {% if app.user %}
+                {% set routes = routes|merge(['app_logout','user_books']) %}
+            {% else %}
+                {% set routes = routes|merge(['app_login','app_register']) %}
+            {% endif %}
+            {% for route in routes %}
+                <li><a href="{{ path(route) }}">{{ route|title }}</a></li>
+            {% endfor %}
+
+        </ul>
+
 
     </nav>
 

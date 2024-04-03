@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+    <button>
+        <a href="{{ path('user_export_books') }}">Export </a>
+    </button>
+    {% for userBook in userBooks %}
+        {% set book = userBook.book %}
+        <li>
+            {{ book.isbn }}
+            {{ book.title }}
+            {{ book.status }}
+        </li>
+    {% endfor %}
+
+{% endblock %}

@@ -12,6 +12,7 @@ use App\Repository\UserBookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use Genkgo\Favicon\Input;
+use Scriptotek\GoogleBooks\GoogleBooks;
 use Survos\Scraper\Service\ScraperService;
 use Symfony\Bridge\Twig\Attribute\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -63,6 +64,10 @@ class AppController extends AbstractController
     public function searchISBN(string $id='9780140328721'   )
     {
 
+        $books = new GoogleBooks(); // ['key' => 'YOUR_API_KEY_HERE']);
+        $volume = $books->volumes->byIsbn($id   );
+//        dd($volume);
+
         if (!$book = $this->bookRepository->findOneBy(['isbn' => $id])) {
             $book = (new Book($id));
             $this->entityManager->persist($book);
@@ -85,6 +90,14 @@ class AppController extends AbstractController
         $json = $this->scraperService->fetchData("https://openlibrary.org/isbn/{$id}.json");
         if (empty($json) || !array_key_exists('title', $json)) {
             $json['title'] = "Not found: " . $id;
+            $book->setStatus(Book::STATUS_NOT_FOUND);
+            // try google books?
+            $volume = $books->volumes->byIsbn($id);
+            if ($volume) {
+                dd($volume, $id);
+            }
+
+
         }
         $this->setAuthors($json, $book);
         $book->setTitle($json['title'])

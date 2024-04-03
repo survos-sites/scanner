@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello QRBooksController!{% endblock %}
-
 {% block body %}
     <table>
         <tbody>
@@ -9,8 +8,9 @@
 
     {% for row in records %}
         {% if row[2] %}
-        <tr valign="top" style="height: 400px">
+        <tr  valign="top" style="height: 400px">
             <td>
+
                 <img src="{{ qr_code_data_uri(row[2]) }}" />
             </td>
             <td>

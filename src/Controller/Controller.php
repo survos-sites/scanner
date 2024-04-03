@@ -16,7 +16,7 @@ class Controller extends AbstractController
     }
 
 
-    #[Template('/index.html.twig')]
+    #[Template('/books.html.twig')]
     #[Route(path: '/index', name: 'index')]
     public function index(Request $request): array
     {

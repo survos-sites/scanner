@@ -5,25 +5,32 @@ namespace App\Entity;
 use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Survos\CoreBundle\Entity\RouteParametersInterface;
 use Survos\CoreBundle\Entity\RouteParametersTrait;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book implements RouteParametersInterface
 {
+    public const STATUS_NOT_FOUND='not_found';
+
     use RouteParametersTrait;
     #[ORM\Id]
     #[ORM\Column(length: 19)]
+    #[Groups(['book.export'])]
     private ?string $isbn = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['book.export'])]
     private ?string $title = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true, options: ['jsonb' => true])]
     private ?array $info = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['book.export'])]
     private ?string $status = null;
 
     #[ORM\Column]
@@ -38,6 +45,12 @@ class Book implements RouteParametersInterface
 
     #[ORM\OneToMany(targetEntity: UserBook::class, mappedBy: 'book', orphanRemoval: true)]
     private Collection $userBooks;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(nullable: true, options: ['jsonb' => true])]
+    private ?array $openLibData = null;
 
     /**
      * @param string|null $isbn
@@ -178,6 +191,25 @@ class Book implements RouteParametersInterface
                 $userBook->setBook(null);
             }
         }
+
+        return $this;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getOpenLibData(): ?array
+    {
+        return $this->openLibData;
+    }
+
+    public function setOpenLibData(?array $openLibData): static
+    {
+        $this->openLibData = $openLibData;
 
         return $this;
     }

@@ -5,7 +5,9 @@ namespace App\Command;
 use App\Controller\AppController;
 use App\Controller\BookController;
 use App\Repository\BookRepository;
+use App\Service\BookService;
 use Doctrine\ORM\EntityManagerInterface;
+use League\Csv\Reader;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Zenstruck\Console\ConfigureWithAttributes;
 use Zenstruck\Console\InvokableServiceCommand;
@@ -24,6 +26,7 @@ final class AppScrapeCommand extends InvokableServiceCommand
     public function __construct(
         private EntityManagerInterface $entityManager,
         private BookRepository $bookRepository,
+        private BookService $bookService,
         private AppController $appController
     )
     {
@@ -33,12 +36,23 @@ final class AppScrapeCommand extends InvokableServiceCommand
     public function __invoke(
         IO $io,
     ): void {
-        foreach (['9789681632540'] as $isbn) {
-            $this->appController->searchISBN($isbn);
+
+        $path = __DIR__ . '/../../sample.csv';
+        $csv = Reader::createFromPath($path, 'r');
+        $csv->setHeaderOffset(0);
+        $records = $csv->getRecords(); // an Iterator object containing arrays
+        foreach ($records as $row) {
+            $book = $this->bookService->lookup($row['isbn']);
         }
-        foreach ($this->bookRepository->findAll() as $book) {
-            $this->appController->searchISBN($book->getIsbn());
-        }
+        $this->entityManager->flush();
+
+
+//        foreach (['9789681632540'] as $isbn) {
+//            $this->appController->searchISBN($isbn);
+//        }
+//        foreach ($this->bookRepository->findAll() as $book) {
+//            $this->appController->searchISBN($book->getIsbn());
+//        }
         $io->success('app:scrape success.');
     }
 }

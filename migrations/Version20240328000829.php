@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240326002516 extends AbstractMigration
+final class Version20240328000829 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -23,7 +23,7 @@ final class Version20240326002516 extends AbstractMigration
         $this->addSql('CREATE SEQUENCE user_book_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE users_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE author (ol_id VARCHAR(18) NOT NULL, info JSON DEFAULT NULL, PRIMARY KEY(ol_id))');
-        $this->addSql('CREATE TABLE book (isbn VARCHAR(19) NOT NULL, title VARCHAR(255) DEFAULT NULL, info JSON DEFAULT NULL, status VARCHAR(255) DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, PRIMARY KEY(isbn))');
+        $this->addSql('CREATE TABLE book (isbn VARCHAR(19) NOT NULL, title VARCHAR(255) DEFAULT NULL, info JSONB DEFAULT NULL, status VARCHAR(255) DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, description TEXT DEFAULT NULL, open_lib_data JSONB DEFAULT NULL, PRIMARY KEY(isbn))');
         $this->addSql('COMMENT ON COLUMN book.created_at IS \'(DC2Type:datetime_immutable)\'');
         $this->addSql('CREATE TABLE book_author (book_isbn VARCHAR(19) NOT NULL, author_olid VARCHAR(18) NOT NULL, PRIMARY KEY(book_isbn, author_olid))');
         $this->addSql('CREATE INDEX IDX_9478D345D581BFEE ON book_author (book_isbn)');

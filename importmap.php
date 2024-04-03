@@ -16,14 +16,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
-    '@hotwired/stimulus' => [
-        'version' => '3.2.2',
-    ],
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
+    '@hotwired/stimulus' => [
+        'version' => '3.2.2',
+    ],
     '@hotwired/turbo' => [
-        'version' => '7.3.0',
+        'version' => '8.0.4',
     ],
     '@picocss/pico' => [
         'version' => '2.0.6',
@@ -45,31 +45,31 @@ return [
         'version' => '4.1.0',
     ],
     'date-fns' => [
-        'version' => '2.30.0',
+        'version' => '3.6.0',
     ],
     '@babel/runtime/helpers/esm/typeof' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/createForOfIteratorHelper' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/assertThisInitialized' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/inherits' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/createSuper' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/classCallCheck' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/createClass' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@babel/runtime/helpers/esm/defineProperty' => [
-        'version' => '7.23.8',
+        'version' => '7.24.1',
     ],
     '@khmyznikov/pwa-install' => [
         'version' => '0.3.5',
