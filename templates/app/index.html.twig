@@ -12,6 +12,13 @@
             {{ 'scan'|trans }}
         </button>
     </a>
+        <a href="{{ path('app_qr') }}" class="btn">
+            <button>
+                <i class="bi bi-qr-code-scan"></i>
+                {{ 'mobile login'|trans }}
+            </button>
+        </a>
+
     <hr />
         {% set _sc = 'content-loader' %}
         <div {{ stimulus_controller(_sc, {
@@ -30,11 +37,10 @@
 {#        >#}
 {#        </div>#}
 
-
-        <hr />
-        <form>
-            <input type="text">
-            <button>Submit</button>
-        </form>
+{#        <hr />#}
+{#        <form>#}
+{#            <input type="text">#}
+{#            <button>Submit</button>#}
+{#        </form>#}
     </main>
 {% endblock %}

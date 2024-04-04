@@ -26,8 +26,10 @@ class UserController extends AbstractController
     #[IsGranted('IS_AUTHENTICATED')]
     public function export(BookService $bookService): Response
     {
-        $csv = $bookService->exportBooks();
-        return new Response($csv);
+        $csv = $bookService->exportBooks($this->getUser());
+        return new Response($csv, 200, headers: [
+            'Content-Type' => 'text/csv'
+        ]);
     }
 
 }

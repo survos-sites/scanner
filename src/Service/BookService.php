@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Service;
 
 use App\Entity\Book;
+use App\Entity\User;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Scriptotek\GoogleBooks\GoogleBooks;
@@ -25,12 +26,11 @@ class BookService
     {
     }
 
-    public function exportBooks()
+    public function exportBooks(?User $user=null)
     {
-        $books = $this->bookRepository->findAll();
+        $books = $user ? $user->getBooks() : $this->bookRepository->findAll();
         $csv = $this->serializer->serialize($books, 'csv', ['groups' => ['book.export']]);
-        file_put_contents('books.csv', $csv);
-        dd($csv);
+//        file_put_contents('books.csv', $csv);
         return $csv;
     }
 

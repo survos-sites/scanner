@@ -3,5 +3,10 @@
 {% block title %}Hello World!{% endblock %}
 
 {% block body %}
-    <img src="{{ qr_code_url(absolute_url(path('app_homepage'))) }}" />
+    {% if app.user %}
+    <img src="{{ qr_code_url(absolute_url(path('app_login', app.user ? {email:  app.user.email} : {}))) }}" />
+        <p>Login as {{ app.user.email }}</p>
+    {% else %}
+    <img src="{{ qr_code_url(absolute_url(path('app_homepage', app.user ? {email:  app.user.email} : {}))) }}" />
+    {% endif %}
 {% endblock %}

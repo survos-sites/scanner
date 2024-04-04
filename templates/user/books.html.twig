@@ -4,9 +4,10 @@
 
 {% block body %}
 
-    <button>
-        <a href="{{ path('user_export_books') }}">Export </a>
-    </button>
+
+    <a href="{{ path('user_export_books') }}"><button>Export</button> </a>
+
+    <h1>{{ app.user.email }} Books</h1>
     {% for userBook in userBooks %}
         {% set book = userBook.book %}
         <li>

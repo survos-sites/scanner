@@ -86,7 +86,7 @@
                 {% set routes = routes|merge(['app_not_found']) %}
             {% endif %}
             {% for route in routes %}
-                <li><a href="{{ path(route) }}">{{ route|title }}</a></li>
+                <li><a href="{{ path(route) }}">{{ route|replace({'app_': ''})|title }}</a></li>
             {% endfor %}
 
         </ul>

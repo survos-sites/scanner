@@ -38,15 +38,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'user', orphanRemoval: true)]
-    private Collection $books;
-
     #[ORM\OneToMany(targetEntity: UserBook::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $userBooks;
 
     public function __construct()
     {
-        $this->books = new ArrayCollection();
         $this->userBooks = new ArrayCollection();
     }
 
@@ -130,30 +126,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getBooks(): Collection
     {
-        return $this->books;
+        return $this->getUserBooks()->map(fn(UserBook $userBook) => $userBook->getBook());
     }
 
-    public function addBook(Book $book): static
-    {
-        if (!$this->books->contains($book)) {
-            $this->books->add($book);
-            $book->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBook(Book $book): static
-    {
-        if ($this->books->removeElement($book)) {
-            // set the owning side to null (unless already changed)
-            if ($book->getUser() === $this) {
-                $book->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, UserBook>

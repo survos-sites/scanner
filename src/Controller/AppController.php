@@ -48,7 +48,7 @@ class AppController extends AbstractController
     public function _list(): Response
     {
         return $this->render('app/_list.html.twig',
-            ['books' => $this->bookRepository->findBy(['status' => [Book::STATUS_OK, Book::STATUS_MAYBE]], ['createdAt' => 'DESC'], 2000)
+            ['books' => $this->bookRepository->findBy(['status' => [Book::STATUS_OK, Book::STATUS_MAYBE]], ['createdAt' => 'DESC'], 20)
         ]);
     }
 
