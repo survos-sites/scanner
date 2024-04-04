@@ -15,6 +15,8 @@ use Symfony\Component\Serializer\Attribute\Groups;
 class Book implements RouteParametersInterface
 {
     public const STATUS_NOT_FOUND='not_found';
+    public const STATUS_OK='ok';
+    public const STATUS_MAYBE='maybe'; // isbn not found, regular search with first result
 
     use RouteParametersTrait;
     #[ORM\Id]

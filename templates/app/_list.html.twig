@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
     <tr>
+        <th>{{ 'langauge'|trans }}</th>
         <th>Titulo</th>
         <th>Paginas</th>
         <th>Autor(es)</th>
@@ -11,16 +12,19 @@
 {% for book in books %}
     <tr>
         <td>
+            {{ book.info.language|default('~') }}
+        </td>
+        <td>
             <a href="{{ path('book_show', book.rp) }}">
                 {{ book.title }}
+                 <code>{{ book.isbn }}</code>
             </a>
             <br />
-            <code>{{ book.isbn }}</code>
             <p>{{ book.description }}</p>
 
         </td>
         <td>
-            {{ book.info ? book.info.number_of_pages|default('?') }} <pages></pages>
+            {{ book.info ? book.info.pageCount|default('?') }} pages
         </td>
         <td>
             <ul>

@@ -1,5 +1,9 @@
 # Book Scanner
 
+A Symfony-based PWA that allows registered users to scan the ISBN from their books.
+
+## Demo
+
 
 
 https://commons.wikimedia.org/wiki/File:Hello_(97564)_-_The_Noun_Project.svg

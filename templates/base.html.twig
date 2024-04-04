@@ -82,6 +82,9 @@
             {% else %}
                 {% set routes = routes|merge(['app_login','app_register']) %}
             {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                {% set routes = routes|merge(['app_not_found']) %}
+            {% endif %}
             {% for route in routes %}
                 <li><a href="{{ path(route) }}">{{ route|title }}</a></li>
             {% endfor %}

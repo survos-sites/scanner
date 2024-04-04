@@ -9,6 +9,7 @@ use App\Entity\UserBook;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use App\Repository\UserBookRepository;
+use App\Service\BookService;
 use Doctrine\ORM\EntityManagerInterface;
 use DOMDocument;
 use Genkgo\Favicon\Input;
@@ -47,8 +48,16 @@ class AppController extends AbstractController
     public function _list(): Response
     {
         return $this->render('app/_list.html.twig',
-            ['books' => $this->bookRepository->findBy([], ['createdAt' => 'DESC'], 20)
+            ['books' => $this->bookRepository->findBy(['status' => [Book::STATUS_OK, Book::STATUS_MAYBE]], ['createdAt' => 'DESC'], 2000)
         ]);
+    }
+
+    #[Route('/not_found', name: 'app_not_found')]
+    public function not_found(): Response
+    {
+        return $this->render('app/not_found_list.html.twig',
+            ['books' => $this->bookRepository->findBy(['status' => [Book::STATUS_NOT_FOUND]], ['createdAt' => 'DESC'], 20)
+            ]);
     }
 
     #[Route('/scan', name: 'app_scan')]
@@ -61,17 +70,21 @@ class AppController extends AbstractController
 
     #[Route('/isbn/{id}', name: 'app_isbn')]
     #[IsGranted('IS_AUTHENTICATED')]
-    public function searchISBN(string $id='9780140328721'   )
+    public function searchISBN(BookService $bookService, string $id='9780140328721')
     {
 
-        $books = new GoogleBooks(); // ['key' => 'YOUR_API_KEY_HERE']);
-        $volume = $books->volumes->byIsbn($id   );
+//        $books = new GoogleBooks(); // ['key' => 'YOUR_API_KEY_HERE']);
+//        $volume = $books->volumes->byIsbn($id   );
 //        dd($volume);
 
         if (!$book = $this->bookRepository->findOneBy(['isbn' => $id])) {
             $book = (new Book($id));
             $this->entityManager->persist($book);
+            $this->entityManager->flush();
         }
+        // really most recent scan!
+        $book->setCreatedAt(new \DateTimeImmutable());
+
         /** @var User $user */
         if ($user = $this->getUser()) {
             if (!$userBook = $this->userBookRepository->findOneBy([
@@ -86,22 +99,24 @@ class AppController extends AbstractController
             $user->addUserBook($userBook);
         }
 
-        // https://openlibrary.org/isbn/9780140328721
-        $json = $this->scraperService->fetchData("https://openlibrary.org/isbn/{$id}.json");
-        if (empty($json) || !array_key_exists('title', $json)) {
-            $json['title'] = "Not found: " . $id;
-            $book->setStatus(Book::STATUS_NOT_FOUND);
-            // try google books?
-            $volume = $books->volumes->byIsbn($id);
-            if ($volume) {
-                dd($volume, $id);
-            }
+        $book = $bookService->lookup($id);
 
-
-        }
-        $this->setAuthors($json, $book);
-        $book->setTitle($json['title'])
-            ->setInfo($json);
+//        // https://openlibrary.org/isbn/9780140328721
+//        $json = $this->scraperService->fetchData("https://openlibrary.org/isbn/{$id}.json");
+//        if (empty($json) || !array_key_exists('title', $json)) {
+//            $json['title'] = "Not found: " . $id;
+//            $book->setStatus(Book::STATUS_NOT_FOUND);
+//            // try google books?
+//            $volume = $books->volumes->byIsbn($id);
+//            if ($volume) {
+//                dd($volume, $id);
+//            }
+//
+//
+//        }
+//        $this->setAuthors($json, $book);
+//        $book->setTitle($json['title'])
+//            ->setInfo($json);
         $this->entityManager->flush();
         return new JsonResponse($book->getInfo());
     }

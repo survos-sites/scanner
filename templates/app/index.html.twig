@@ -14,9 +14,10 @@
     </a>
     <hr />
         {% set _sc = 'content-loader' %}
-        <div {{ stimulus_controller(_sc, {url }) }}
-                {{ stimulus_target() }}
-                data-content-loader-url-value="{{ path('app_list') }}"
+        <div {{ stimulus_controller(_sc, {
+            loadScripts: true,
+            refreshInterval: 5000,
+            url: path('app_list') }) }}
                 data-content-loader-load-scripts-value="true"
                 data-content-loader-refresh-interval-value="5000"
         >
