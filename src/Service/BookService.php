@@ -61,7 +61,6 @@ class BookService
                 $volume = $data['items'][0]['volumeInfo']; // ['title'];  // "Harry Potter and the Philosopher's Stone"
 //            $volume = $books->volumes->byIsbn($isbn);
                 $hack = (array)$volume;
-//                dump($hack);
 //                $info =  (array) $hack["\x00*\x00data"];
                 $book->setInfo($hack);
 //            dd($hack, array_keys($hack),);
@@ -81,7 +80,6 @@ class BookService
 //            if (!$volume->getCover()) {
 //                dd($volume);
 //            }
-            dump($volumeInfo);
             $book
                 ->setTitle($volumeInfo->title)
                 ->setDescription($volumeInfo->description??null)
