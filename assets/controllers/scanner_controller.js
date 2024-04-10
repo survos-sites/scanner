@@ -27,16 +27,16 @@ export default class extends Controller {
     {
         return ISBN.audit(isbn).validIsbn;
     }
+
     connect() {
         super.connect();
+
         this.resultsTarget.innerHTML = this.testIsbnValue;
         this.lastValidScan = '';
 
         if (this.isValid(this.testIsbnValue)) {
             // this.fetchInfo(this.testIsbnValue);
         }
-
-
 
 
         var html5QrcodeScanner = new Html5QrcodeScanner(

@@ -5,6 +5,12 @@
 {% block body %}
     <main class="container">
 
+        {% set _sc = 'library' %}
+        <div {{ stimulus_controller(_sc) }}>
+            Library status:
+            <span {{ stimulus_target(_sc, 'status') }}>??</span>
+        </div>
+
     {% set _sc = 'scanner' %}
     <a href="{{ path('app_scan') }}" class="btn">
         <button>

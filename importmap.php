@@ -135,4 +135,7 @@ return [
     'isbn3' => [
         'version' => '1.1.46',
     ],
+    'dexie' => [
+        'version' => '4.0.1',
+    ],
 ];

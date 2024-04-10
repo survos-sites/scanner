@@ -2901,16 +2901,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.27.0",
+            "version": "1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "86e4d5a4b036f8f0be1464522f4c6b584c452757"
+                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/86e4d5a4b036f8f0be1464522f4c6b584c452757",
-                "reference": "86e4d5a4b036f8f0be1464522f4c6b584c452757",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
+                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
                 "shasum": ""
             },
             "require": {
@@ -2942,9 +2942,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.27.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.28.0"
             },
-            "time": "2024-03-21T13:14:53+00:00"
+            "time": "2024-04-03T18:51:33+00:00"
         },
         {
             "name": "picqer/php-barcode-generator",
@@ -3600,16 +3600,16 @@
         },
         {
             "name": "spomky-labs/pwa-bundle",
-            "version": "1.1.2",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
-                "reference": "3713ae113e2c01b6b4908f614aad0c441b241615"
+                "reference": "2b6b468a33cfc8cacccea07eefc5cb71a4e9bce2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/3713ae113e2c01b6b4908f614aad0c441b241615",
-                "reference": "3713ae113e2c01b6b4908f614aad0c441b241615",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/2b6b468a33cfc8cacccea07eefc5cb71a4e9bce2",
+                "reference": "2b6b468a33cfc8cacccea07eefc5cb71a4e9bce2",
                 "shasum": ""
             },
             "require": {
@@ -3688,7 +3688,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Spomky-Labs/pwa-bundle/issues",
-                "source": "https://github.com/Spomky-Labs/pwa-bundle/tree/1.1.2"
+                "source": "https://github.com/Spomky-Labs/pwa-bundle/tree/1.1.4"
             },
             "funding": [
                 {
@@ -3704,11 +3704,11 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-03-31T16:58:36+00:00"
+            "time": "2024-04-05T10:56:36+00:00"
         },
         {
             "name": "survos/auth-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosAuthBundle.git",
@@ -3789,7 +3789,7 @@
             "description": "Helper commands and classes for symfony security",
             "support": {
                 "issues": "https://github.com/survos/SurvosAuthBundle/issues",
-                "source": "https://github.com/survos/SurvosAuthBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosAuthBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -3801,7 +3801,7 @@
         },
         {
             "name": "survos/barcode-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/BarcodeBundle.git",
@@ -3871,7 +3871,7 @@
             "description": "Integrates picqer/php-barcode-generator in a Symfony application",
             "support": {
                 "issues": "https://github.com/survos/BarcodeBundle/issues",
-                "source": "https://github.com/survos/BarcodeBundle/tree/1.5.200"
+                "source": "https://github.com/survos/BarcodeBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -3883,7 +3883,7 @@
         },
         {
             "name": "survos/command-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosCommandBundle.git",
@@ -3928,7 +3928,7 @@
             "description": "Run Symfony console commands from a web interface",
             "support": {
                 "issues": "https://github.com/survos/SurvosCommandBundle/issues",
-                "source": "https://github.com/survos/SurvosCommandBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosCommandBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -3940,7 +3940,7 @@
         },
         {
             "name": "survos/core-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosCoreBundle.git",
@@ -4016,7 +4016,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosCoreBundle/issues",
-                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -4028,7 +4028,7 @@
         },
         {
             "name": "survos/deployment-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosDeploymentBundle.git",
@@ -4074,7 +4074,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosDeploymentBundle/issues",
-                "source": "https://github.com/survos/SurvosDeploymentBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosDeploymentBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -4086,22 +4086,22 @@
         },
         {
             "name": "survos/pwa-extra-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosPwaExtraBundle.git",
-                "reference": "fce9b3176da2eb447f1837eba310b8c4028567c0"
+                "reference": "5ca3cd6dd130249fc8beb9bd215715700a42d606"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/fce9b3176da2eb447f1837eba310b8c4028567c0",
-                "reference": "fce9b3176da2eb447f1837eba310b8c4028567c0",
+                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/5ca3cd6dd130249fc8beb9bd215715700a42d606",
+                "reference": "5ca3cd6dd130249fc8beb9bd215715700a42d606",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "spomky-labs/pwa-bundle": "1.1.x",
-                "survos/core-bundle": "^1.5.200",
+                "spomky-labs/pwa-bundle": "*",
+                "survos/core-bundle": "^1.5.201",
                 "symfony/asset-mapper": "^6.4 || ^7.0",
                 "symfony/config": "^6.4 || ^7.0",
                 "symfony/dependency-injection": "^6.4 || ^7.0",
@@ -4135,7 +4135,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosPwaExtraBundle/issues",
-                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -4143,11 +4143,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-03T11:21:53+00:00"
+            "time": "2024-04-08T15:38:06+00:00"
         },
         {
             "name": "survos/scraper-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosScraperBundle.git",
@@ -4198,7 +4198,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosScraperBundle/issues",
-                "source": "https://github.com/survos/SurvosScraperBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosScraperBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -11069,16 +11069,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.18",
+            "version": "9.6.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04"
+                "reference": "a1a54a473501ef4cdeaae4e06891674114d79db8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04",
-                "reference": "32c2c2d6580b1d8ab3c10b1e9e4dc263cc69bb04",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a1a54a473501ef4cdeaae4e06891674114d79db8",
+                "reference": "a1a54a473501ef4cdeaae4e06891674114d79db8",
                 "shasum": ""
             },
             "require": {
@@ -11152,7 +11152,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.18"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.19"
             },
             "funding": [
                 {
@@ -11168,20 +11168,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-21T12:07:32+00:00"
+            "time": "2024-04-05T04:35:58+00:00"
         },
         {
             "name": "roave/better-reflection",
-            "version": "6.32.0",
+            "version": "6.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "21f41bb8ce247f40d5dcb7115a504d2cf3102840"
+                "reference": "6c2b05232a4642afa741f85481a4d13f4af253be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/21f41bb8ce247f40d5dcb7115a504d2cf3102840",
-                "reference": "21f41bb8ce247f40d5dcb7115a504d2cf3102840",
+                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/6c2b05232a4642afa741f85481a4d13f4af253be",
+                "reference": "6c2b05232a4642afa741f85481a4d13f4af253be",
                 "shasum": ""
             },
             "require": {
@@ -11195,7 +11195,7 @@
             },
             "require-dev": {
                 "phpbench/phpbench": "^1.2.15",
-                "phpunit/phpunit": "^11.0.8"
+                "phpunit/phpunit": "^11.0.9"
             },
             "suggest": {
                 "composer/composer": "Required to use the ComposerSourceLocator"
@@ -11235,9 +11235,9 @@
             "description": "Better Reflection - an improved code reflection API",
             "support": {
                 "issues": "https://github.com/Roave/BetterReflection/issues",
-                "source": "https://github.com/Roave/BetterReflection/tree/6.32.0"
+                "source": "https://github.com/Roave/BetterReflection/tree/6.33.0"
             },
-            "time": "2024-03-27T15:54:44+00:00"
+            "time": "2024-04-04T02:09:00+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -12204,7 +12204,7 @@
         },
         {
             "name": "survos/maker-bundle",
-            "version": "1.5.200",
+            "version": "1.5.201",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosMakerBundle.git",
@@ -12306,7 +12306,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosMakerBundle/issues",
-                "source": "https://github.com/survos/SurvosMakerBundle/tree/1.5.200"
+                "source": "https://github.com/survos/SurvosMakerBundle/tree/1.5.201"
             },
             "funding": [
                 {
@@ -12592,16 +12592,16 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.57.0",
+            "version": "v1.58.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "2c90181911241648356b828b86b04fe3571aca0b"
+                "reference": "c4f8d2c5d55950e1a49e822efc83a8511bee8a36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/2c90181911241648356b828b86b04fe3571aca0b",
-                "reference": "2c90181911241648356b828b86b04fe3571aca0b",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/c4f8d2c5d55950e1a49e822efc83a8511bee8a36",
+                "reference": "c4f8d2c5d55950e1a49e822efc83a8511bee8a36",
                 "shasum": ""
             },
             "require": {
@@ -12664,7 +12664,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
-                "source": "https://github.com/symfony/maker-bundle/tree/v1.57.0"
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.58.0"
             },
             "funding": [
                 {
@@ -12680,7 +12680,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-22T12:00:21+00:00"
+            "time": "2024-04-06T15:08:12+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
