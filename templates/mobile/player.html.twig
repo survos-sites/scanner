@@ -1,0 +1,45 @@
+{% set pageController = 'renderxx' %}
+{% extends "@SurvosMobile/onsPage.html.twig" %}
+
+{% block pageId 'player' %}
+
+{% block body %}
+
+    {% set store = 'tours' %}
+    {% set globals = {template: _self} %}
+    {# @todo: it looks for a key for database lookup, but the key from the the page params. #}
+<twig:dexie
+        :store="store"
+        :globals="globals"
+        :filter="{}"
+        key="xx"
+        :caller="_self">
+    <twig:block name="title">
+        {{ data.id }} title
+    </twig:block>
+    <twig:block name="twig_template" id="player_template">
+        <h1>Tour ID: {{ data.id|default('undefined') }}</h1>
+
+        <figure>
+            <figcaption>Listen!</figcaption>
+            <audio controls src="{{ data.audioUri }}"></audio>
+        </figure>
+
+
+        {{ data.audioUri }}
+        <audio src="{{ data.audioUri }}"></audio>
+        <img alt="{{ data.itemImageUri }}"
+             src="/media/cache/squared_thumbnail_tiny/{{ data.itemImageUri }}" />
+        <div>
+{#            {{ data.transcript }}#}
+        </div>
+
+        {% for var, val in data %}
+            <li>{{ var }}: {{ val }}</li>
+        {% endfor %}
+
+        <!-- player_template -->
+    </twig:block>
+</twig:dexie>
+
+{% endblock %}

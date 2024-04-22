@@ -1,0 +1,78 @@
+{% extends "@SurvosMobile/onsPage.html.twig" %}
+
+{% block tabId 'tours' %}
+{% block body %}
+
+    {{ _self }}
+    {% set store = 'tours' %}
+    rendering dexie with tours
+
+    {% set stimulusSettings = stimulus_action(_app_sc, 'player', 'click',
+        {
+            page: 'player',
+            store: store,
+            id: '@id'}).toArray %}
+
+    {% set globals = {
+        stimulusSettings: stimulusSettings
+    } %}
+
+    <ons-list {{ stimulus_controller('tour',
+        controllerOutlets = { 'app': '#app' }) }}
+
+            ) }}>
+            <twig:dexie
+                    :store="store"
+                    :globals="globals"
+                    :filter="{}"
+                    :caller="_self">
+
+            <twig:block name="twig_template" id="literal">
+                {% for row in rows %}
+                    <ons-list-item tappable>
+                        <div class="left">
+                            <a
+                            {% for var, val in globals.stimulusSettings %}
+                                {% if val starts with '@' %}
+                                    {% set val = row[val|replace({'@':''})] %}
+                                {% endif %}
+                                {{ var }}="{{ val }}"
+                            {% endfor %}
+                            >
+                            <div class="user">
+                                <ons-icon icon="fa-headphones"></ons-icon>
+                                <span style="font-size: 12px">{{ row.stopId }}</span>
+                            </div>
+
+{#                            <a data-action="app->tour#click"#}
+{#                               data-app-id-param="{{ row.id }}">#}
+
+                                <img alt="{{ row.itemImageUri }}" src="/media/cache/squared_thumbnail_tiny/{{ row.itemImageUri }}"/>
+                                <br/>
+
+                            </a>
+                            {#                                <img class="thumbnail" ng-src="{{ video.thumbnail }}"> #}
+                        </div>
+                        <div class="center">
+                            <div class="title">
+                                {{ row.title }}
+                                {{ row.name }} {{ row.id }}
+
+
+                            </div>
+                            <div class="desc">
+                                {{ row.description }}
+                                open player for {{ row.id }}
+                                Image: {{ row.itemImageUri }}
+
+                            </div>
+                        </div>
+                    </ons-list-item>
+                {% endfor %}
+                <!-- literal -->
+            </twig:block>
+
+        </twig:dexie>
+    </ons-list>
+
+{% endblock %}

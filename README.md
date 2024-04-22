@@ -4,6 +4,10 @@ A Symfony-based PWA that allows registered users to scan the ISBN from their boo
 
 ## Demo
 
+use the built-in barcode API
+
+@todo: https://javascript.plainenglish.io/14-lesser-known-but-incredibly-useful-web-apis-you-should-know-about-91ba92ea8cf4
+
 
 
 https://commons.wikimedia.org/wiki/File:Hello_(97564)_-_The_Noun_Project.svg

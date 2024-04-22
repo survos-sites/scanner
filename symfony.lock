@@ -55,6 +55,9 @@
     "endroid/qr-code-bundle": {
         "version": "5.0.1"
     },
+    "knplabs/knp-menu-bundle": {
+        "version": "v3.4.1"
+    },
     "liip/monitor-bundle": {
         "version": "3.9999999",
         "recipe": {
@@ -130,8 +133,14 @@
     "survos/deployment-bundle": {
         "version": "1.5.190"
     },
+    "survos/js-twig-bundle": {
+        "version": "1.5.206"
+    },
     "survos/maker-bundle": {
         "version": "1.5.190"
+    },
+    "survos/mobile-bundle": {
+        "version": "1.5.203"
     },
     "survos/pwa-extra-bundle": {
         "version": "1.5.190"

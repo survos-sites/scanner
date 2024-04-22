@@ -30,6 +30,8 @@
         "survos/command-bundle": "^1.5",
         "survos/core-bundle": "^1.5",
         "survos/deployment-bundle": "^1.5",
+        "survos/js-twig-bundle": "^1.5",
+        "survos/mobile-bundle": "^1.5",
         "survos/pwa-extra-bundle": "^1.5",
         "survos/scraper-bundle": "^1.5",
         "symfony/asset": "^7.0",

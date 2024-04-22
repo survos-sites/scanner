@@ -1,0 +1,10 @@
+# Default configuration for extension with alias: "survos_js_twig"
+survos_js_twig:
+  debug: false
+  db: library
+  version: 3
+  stores:
+    -
+      name: books
+      schema: "++isbn,title"
+      url: '/api/books'

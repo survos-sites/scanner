@@ -37,7 +37,7 @@ class AppController extends AbstractController
     {
 
     }
-    #[Route('/', name: 'app_homepage')]
+    #[Route('/admin', name: 'app_homepage')]
     public function index(): Response
     {
         return $this->render('app/index.html.twig', [
