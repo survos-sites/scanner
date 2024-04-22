@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="color-scheme" content="light dark" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+        {{ pwa() }}
+    </head>
+    <body>
+    <nav>
+        <ul>
+            <li><a href="{{ path('app_homepage') }}">
+                    <strong>Scanner</strong>
+                </a>
+           </li>
+        </ul>
+        <ul>
+{#                <pwa-install></pwa-install>#}
+                <li class="mx-auto max-w-screen-xl text-center px-4" {{
+                stimulus_controller('@pwa/connection-status', {
+                    onlineMessage: 'online',
+                    offlineMessage: 'offline'
+                }) }}>
+                    <div
+                            {{ stimulus_target('@pwa/connection-status', 'attribute') }}
+                            class="flex items-center p-4 mb-4 text-sm border rounded-lg online:text-green-800 online:bg-green-50 online:dark:bg-gray-800 online:dark:text-green-400 offline:text-yellow-800 offline:bg-yellow-50 offline:dark:bg-gray-800 offline:dark:text-yellow-300"
+                            role="alert"
+                    >
+                        <div>
+                            <span {{ stimulus_target('@pwa/connection-status', 'message') }}>
+                ...
+            </span>
+                        </div>
+                    </div>
+                </li>
+{#                {{ block('connection_status') }}#}
+{#                <twig:ConnectionDetector>#}
+{#                    <twig:block name="online">#}
+{#                        online#}
+{#                    </twig:block>#}
+{#                    <twig:block name="offline">#}
+{#                        offline#}
+{#                    </twig:block>#}
+{#                </twig:ConnectionDetector>#}
+                <twig:PwaInstall>
+                    <twig:block name="launch">
+                        <button class="btn btn-outline-success">
+                            Launch button here...
+                        </button>
+                    </twig:block>
+                    <twig:block name="install">
+                        <i class="bi bi-download"></i>
+                            Install
+                    </twig:block>
+                </twig:PwaInstall>
+            </li>
+        </ul>
+        <ul>
+            {% set routes = ['scan','qr'] %}
+            {% if app.environment == 'dev' %}
+            {% set routes = routes|merge(['list','isbn','qr_books']) %}
+            {% endif %}
+            {% for route in routes %}
+                <li><a href="{{ path('app_' ~ route) }}">{{ route|title }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+        <ul>
+
+            {% set routes = [] %}
+            {% if app.user %}
+                {% set routes = routes|merge(['app_logout','user_books']) %}
+            {% else %}
+                {% set routes = routes|merge(['app_login','app_register']) %}
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                {% set routes = routes|merge(['app_not_found']) %}
+            {% endif %}
+            {% for route in routes %}
+                <li><a href="{{ path(route) }}">{{ route|replace({'app_': ''})|title }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+
+    </nav>
+
+    <main class="container">
+        {% block body %}
+        {% endblock %}
+    </main>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+{% extends '@SurvosMobile/onsPage.html.twig' %}
+{% block pageId 'list' %}
+{#{% block toolbar %}#}
+{#    {{ parent() }}#}
+{#    <div class="center">home?</div>#}
+{#{% endblock %}#}
+
+{% block body %}
+    <h3>{{ 'books'|trans }}</h3>
+
+    {% set store = 'books' %}
+    {% set stimulusSettings = stimulus_action(_app_sc, 'test', 'click',
+        {
+            page: 'detail',
+            store: store,
+            id: '@id'}).toArray %}
+
+    {% set globals = {
+        stimulusSettings: stimulusSettings
+    } %}
+
+    <twig:dexie
+            :store="store"
+            :globals="globals"
+            :filter="{}"
+            :caller="_self">
+
+        <twig:block name="title">
+            there are {{ rows|length }} rows
+        </twig:block>
+
+        <twig:block name="twig_template" id="hack_to_get_raw_data">
+            there are {{ rows|length }} rows
+            {% for book in rows %}
+                {% set checked = row.owned ? 'checked' : '' %}
+                <ons-list-item>
+                    <h3>{{ book.title }}</h3>
+                    <code>{{ book.isbn }}</code>
+                    <i>{{ book.status }}</i>
+                    <a
+                    {% for var, val in globals.stimulusSettings %}
+                        {% if val starts with '@' %}
+                            {% set val = row[val|replace({'@':''})] %}
+                        {% endif %}
+                        {{ var }}="{{ val }}"
+                    {% endfor %}
+                    >
+                    {{ row.name }} {{ row.id }}
+                    </a>
+
+{#                    <ons-switch#}
+{#                            data-controller="ownswitch"#}
+{#                            class="right"#}
+{#                            data-ownswitch-owned-value="{{ book.owned }}"#}
+{#                            data-action="click->app#add"#}
+{#                            data-app-id-param="{{ row.id }}">#}
+{#                    </ons-switch>#}
+                </ons-list-item>
+            {% endfor %}
+             this html tag is used for a regex grab if node->html() doesn't work
+            <!-- hack_to_get_raw_data -->
+        </twig:block>
+    </twig:dexie>
+
+
+    {#    <ons-list {{ stimulus_target(_sc, 'list') }}> #}
+    {#        <ons-list-item>TEST</ons-list-item> #}
+    {#    </ons-list> #}
+
+    <div {{ stimulus_target('app','spinner') }}
+            id="after-list" style="display:none; margin: 20px; text-align: center;">
+        <ons-icon icon="fa-spinner" size="26px" spin></ons-icon>
+    </div>
+
+{% endblock %}

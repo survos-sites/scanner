@@ -30,4 +30,7 @@ return [
     KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle::class => ['all' => true],
     Survos\BarcodeBundle\SurvosBarcodeBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
+    Survos\MobileBundle\SurvosMobileBundle::class => ['all' => true],
+    Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
+    Survos\JsTwigBundle\SurvosJsTwigBundle::class => ['all' => true],
 ];

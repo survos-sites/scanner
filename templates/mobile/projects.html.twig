@@ -1,0 +1,21 @@
+{% extends "@SurvosMobile/onsPage.html.twig" %}
+
+{% block pageId 'projects' %}
+{% block body %}
+
+    <twig:dexie
+            :caller="_self"
+            store="projects"
+    >
+        <twig:block name="twig_template">
+            {% for row in rows %}
+                <li>
+
+                    {{ row.slug }}
+                </li>
+            {% endfor %}
+        </twig:block>
+
+    </twig:dexie>
+
+{% endblock %}

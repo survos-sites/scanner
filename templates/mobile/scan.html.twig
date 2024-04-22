@@ -1,0 +1,31 @@
+{% extends '@SurvosMobile/onsPage.html.twig' %}
+
+{% block title %}Hello World!{% endblock %}
+
+{% block body %}
+    <main class="container">
+
+        <ul id="list">
+        </ul>
+
+    {% set _sc = 'scanner' %}
+    <a href="{{ path('app_scan') }}" class="btn">
+        <button>
+            Reload
+        </button>
+    </a>
+    <hr />
+
+    <div {{ stimulus_controller(_sc, {
+    testIsbn: '9780140328721'
+}) }}>
+        <h1 {{ stimulus_target(_sc, 'results') }}>
+            results here.
+        </h1>
+        <div id="qr-reader" {{ stimulus_target(_sc, 'camera') }} style="width: 80%">
+            reader here.
+        </div>
+    </div>
+        <h1>Hello world!</h1>
+    </main>
+{% endblock %}
