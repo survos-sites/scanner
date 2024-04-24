@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
 #[ApiResource]
-class Author
+class Author implements \Stringable
 {
     #[ORM\Column(length: 18)]
     #[ORM\Id]
@@ -87,5 +87,11 @@ class Author
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
+
     }
 }
