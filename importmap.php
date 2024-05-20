@@ -174,4 +174,13 @@ return [
     'locutus/php/var/boolval' => [
         'version' => '2.0.16',
     ],
+    'stimulus-attributes' => [
+        'version' => '1.0.1',
+    ],
+    'escape-html' => [
+        'version' => '1.0.3',
+    ],
+    'fos-routing' => [
+        'version' => '0.0.6',
+    ],
 ];
