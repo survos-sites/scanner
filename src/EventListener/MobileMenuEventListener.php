@@ -38,7 +38,7 @@ final class MobileMenuEventListener implements KnpMenuHelperInterface
 
         $menu = $event->getMenu();
         $options = $event->getOptions();
-        $this->add($menu, id: 'blank',  icon: 'fa-trash');
+//        $this->add($menu, id: 'blank',  icon: 'fa-trash');
         $this->add($menu, id: 'scan',  icon: 'fa-trash');
         $this->add($menu, id: 'list',  icon: 'fa-database',
             badge: '?'
