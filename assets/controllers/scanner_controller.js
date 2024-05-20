@@ -13,7 +13,7 @@ import ISBN from 'isbn3'
 */
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    static targets = ['results', 'camera']
+    static targets = ['results', 'camera', 'qrvideos']
     static values = {
         testIsbn: String,
     }
@@ -28,7 +28,7 @@ export default class extends Controller {
         return ISBN.audit(isbn).validIsbn;
     }
 
-    connect() {
+    async connect() {
         super.connect();
 
         this.resultsTarget.innerHTML = this.testIsbnValue;
@@ -38,17 +38,35 @@ export default class extends Controller {
             // this.fetchInfo(this.testIsbnValue);
         }
 
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              facingMode: { ideal: 'environment' }
+            },
+            audio: false
+          });
+        this.qrvideosTarget.srcObject = stream;
+        await this.qrvideosTarget.play();
 
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            // this.cameraTarget.element.attribute('id'),
-            'qr-reader',
-            { fps: 5});
-        html5QrcodeScanner.render( (decodedText, decodedResult) => {
-            // this.resultsTarget.innerHTML = decodedText;
-            // if it's isbn...
-            const info = this.fetchInfo(decodedText);
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-        });
+        // const barcodeDetector = new BarcodeDetector({formats: ['qr_code']});
+        // const barcodes = await barcodeDetector.detect(videoEl)
+        const barcodeDetector = new BarcodeDetector({formats: ['qr_code']});
+        window.setInterval(async () => {
+        const barcodes = await barcodeDetector.detect(videoEl);
+        if (barcodes.length <= 0) return;
+        alert(barcodes.map(barcode => barcode.rawValue));
+        }, 1000)
+
+
+        // var html5QrcodeScanner = new Html5QrcodeScanner(
+        //     // this.cameraTarget.element.attribute('id'),
+        //     'qr-reader',
+        //     { fps: 5});
+        // html5QrcodeScanner.render( (decodedText, decodedResult) => {
+        //     // this.resultsTarget.innerHTML = decodedText;
+        //     // if it's isbn...
+        //     const info = this.fetchInfo(decodedText);
+        //     console.log(`Code scanned = ${decodedText}`, decodedResult);
+        // });
 
     }
 
