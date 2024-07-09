@@ -50,6 +50,8 @@ final class MobileMenuEventListener implements KnpMenuHelperInterface
     {
         $menu = $event->getMenu();
         $options = $event->getOptions();
+        $this->add($menu, id: 'qr',  icon: 'fa-qr-code');
+
     }
 
     public function footerMenu(KnpMenuEvent $event): void
@@ -64,6 +66,8 @@ final class MobileMenuEventListener implements KnpMenuHelperInterface
     {
         $menu = $event->getMenu();
         $options = $event->getOptions();
+        $this->add($menu, id: 'share',  icon: 'fa-qr-code');
+
         $this->add($menu, id: 'login', icon: 'fa-login');
     }
 }

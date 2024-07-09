@@ -183,4 +183,13 @@ return [
     'fos-routing' => [
         'version' => '0.0.6',
     ],
+    'qrcode' => [
+        'version' => '1.5.3',
+    ],
+    'encode-utf8' => [
+        'version' => '1.0.3',
+    ],
+    'dijkstrajs' => [
+        'version' => '1.0.3',
+    ],
 ];

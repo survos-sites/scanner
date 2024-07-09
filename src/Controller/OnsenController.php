@@ -14,7 +14,7 @@ class OnsenController extends AbstractController
     public function mobile(Request $request): Response
     {
         $templates = [];
-        foreach (['login','blank','scan','list'] as $route) {
+        foreach (['login','blank','scan','list','share'] as $route) {
             $templates[$route] = $this->renderView("mobile/$route.html.twig");
         }
         return $this->render('app/index.html.twig', [
