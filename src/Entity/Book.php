@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
 use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -17,6 +18,7 @@ use Symfony\Component\Serializer\Attribute\Groups;
 #[ApiResource(
     normalizationContext: ['groups' => ['book.export']],
     operations: [
+        new Get(),
         new GetCollection()
     ]
 )]

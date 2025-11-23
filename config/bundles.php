@@ -34,4 +34,5 @@ return [
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
     Survos\JsTwigBundle\SurvosJsTwigBundle::class => ['all' => true],
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
+    Bizkit\VersioningBundle\BizkitVersioningBundle::class => ['all' => true],
 ];
